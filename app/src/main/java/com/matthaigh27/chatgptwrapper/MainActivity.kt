@@ -121,4 +121,14 @@ class MainActivity : Activity() {
             clipboard.setPrimaryClip(clip)
         }
     }
+    private fun removeClass(view: WebView?, className: String) {
+    view?.evaluateJavascript(
+        """
+        // Belirtilen sınıfı içeren tüm öğeleri kaldırma
+        var elements = document.getElementsByClassName("$underline");
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].classList.remove("$underline");
+        }
+        """, null
+    )
 }
